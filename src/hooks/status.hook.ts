@@ -1,6 +1,5 @@
 import React from "react";
-import { useGetUserByIdQuery } from "../store";
-import { useGetBookingsQuery } from "../store/api/bookings.request";
+import { useGetUserByIdQuery, useGetBookingsQuery } from "../store";
 
 const useOccupiedBy = (userId: string) => {
   const { data } = useGetUserByIdQuery(userId, { skip: userId.length === 0 });

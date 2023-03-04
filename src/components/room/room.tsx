@@ -1,5 +1,5 @@
 import { CircularProgress, Typography } from "@mui/material";
-import { useGetResourceQuery } from "../../store/api/resource.request";
+import { useGetResourceQuery } from "../../store";
 import Status from "../status";
 
 const Room = () => {

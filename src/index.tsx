@@ -1,5 +1,4 @@
-import Container from "@mui/material/Container";
-import CssBaseline from "@mui/material/CssBaseline";
+import { Container, CssBaseline } from "@mui/material";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
