@@ -1,5 +1,4 @@
-import { type ApiResponse } from "../../types";
-import type Resource from "../../types/room";
+import { type Resource, type ApiResponse } from "../../types";
 import { api } from "./api";
 
 const request = api.injectEndpoints({

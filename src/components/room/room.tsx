@@ -1,5 +1,6 @@
 import { CircularProgress, Typography } from "@mui/material";
 import { useGetResourceQuery } from "../../store/api/resource.request";
+import Status from "../status";
 
 const Room = () => {
   const { data, isLoading } = useGetResourceQuery();
@@ -7,7 +8,10 @@ const Room = () => {
   return isLoading ? (
     <CircularProgress />
   ) : (
-    <Typography variant="h1">{data?.data?.name}</Typography>
+    <>
+      <Typography variant="h1">{data?.data?.name}</Typography>
+      <Status />
+    </>
   );
 };
 
