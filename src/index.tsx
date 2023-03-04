@@ -1,10 +1,12 @@
-import { AppBar } from "@mui/material";
 import Container from "@mui/material/Container";
 import CssBaseline from "@mui/material/CssBaseline";
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { Provider } from "react-redux";
+import AuthenticationProvider from "./components/authentication-provider";
 import Room from "./components/room";
 import reportWebVitals from "./reportWebVitals";
+import { store } from "./store";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -12,9 +14,13 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <CssBaseline />
-    <Container>
-      <Room />
-    </Container>
+    <Provider store={store}>
+      <AuthenticationProvider>
+        <Container>
+          <Room />
+        </Container>
+      </AuthenticationProvider>
+    </Provider>
   </React.StrictMode>
 );
 
