@@ -16,6 +16,9 @@ import {
 
 import { format } from "date-fns";
 
+/**
+ * A component who will display room timeline for the current day
+ */
 const Timeline = () => {
   const { data: meResponse } = useGetMeQuery();
   const { isLoading, data: bookingsResponse } = useGetBookingsQuery();

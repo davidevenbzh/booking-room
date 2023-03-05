@@ -1,6 +1,9 @@
 import { CircularProgress, Paper, Typography } from "@mui/material";
 import { useStatus } from "../../hooks";
 
+/**
+ * A component who will display info of meeting ongoing
+ */
 const Infos = () => {
   const { isLoading, isAvailable, currentMeetName, occupiedBy } = useStatus();
 

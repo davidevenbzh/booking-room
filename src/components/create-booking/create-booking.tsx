@@ -13,6 +13,9 @@ import {
 import { usePostBookingMutation } from "../../store";
 import { useStatus } from "../../hooks";
 
+/**
+ * A component who will display a button for display a form for booking creation
+ */
 const CreateBooking = () => {
   const { isAvailable, currentAvailableDurations } = useStatus();
   const [open, setOpen] = React.useState<boolean>(false);

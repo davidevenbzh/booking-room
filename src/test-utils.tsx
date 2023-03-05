@@ -1,3 +1,7 @@
+/**
+ * this file is from a thread on stackoverflow for provide a mock store to component when they will be rendered in Unit test
+ * https://stackoverflow.com/a/72502767
+ */
 import React, { type ReactElement } from "react";
 import { Provider } from "react-redux";
 import {
@@ -43,9 +47,7 @@ function render(ui: ReactElement, options?: CustomRenderOptions) {
   return rtlRender(ui, { wrapper: Wrapper, ...options });
 }
 
-// re-export everything
 // eslint-disable-next-line import/export
 export * from "@testing-library/react";
-// override render method
 // eslint-disable-next-line import/export
 export { render };

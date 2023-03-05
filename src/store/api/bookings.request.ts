@@ -3,14 +3,26 @@ import { api } from "./api";
 import { tags } from "./tags.constant";
 
 interface PostBookingApiArgs {
+  /**
+   * Booking name
+   */
   name: string;
+  /**
+   * Booking duration
+   */
   duration: number;
 }
 
 interface DeleteBookingApiArgs {
+  /**
+   * Booking id
+   */
   id: string;
 }
 
+/**
+ * Initilisation of Endpoints related to bookings REST routes
+ */
 const request = api.injectEndpoints({
   endpoints: (builder) => ({
     getBookings: builder.query<ApiResponse<Booking[]>, void>({
