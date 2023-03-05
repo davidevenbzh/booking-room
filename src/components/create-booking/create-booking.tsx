@@ -17,7 +17,7 @@ import { useStatus } from "../../hooks";
 const CreateBooking = () => {
   const { isAvailable, currentAvailableDurations } = useStatus();
   const [open, setOpen] = React.useState<boolean>(false);
-  const [duration, setDuration] = React.useState<number>(0);
+  const [duration, setDuration] = React.useState<number>(10);
   const [name, setName] = React.useState<string>("");
   const [postBooking] = usePostBookingMutation();
 
@@ -41,16 +41,15 @@ const CreateBooking = () => {
     },
     [duration, name, postBooking]
   );
-
   return (
     <>
       <IconButton
         onClick={() => {
           setOpen(true);
         }}
-        disabled={!isAvailable}
+        disabled={!isAvailable || currentAvailableDurations.length === 0}
       >
-        <AddIcon />
+        <AddIcon fontSize="large" />
       </IconButton>
       <Dialog
         open={open}
@@ -61,7 +60,7 @@ const CreateBooking = () => {
         <DialogTitle>Créer une réunion</DialogTitle>
         <DialogContent>
           <form onSubmit={onSubmit}>
-            <FormControl fullWidth>
+            <FormControl fullWidth sx={{ gap: 2, mt: 2 }}>
               <TextField
                 id="name"
                 required
@@ -84,7 +83,9 @@ const CreateBooking = () => {
                 {options}
               </Select>
             </FormControl>
-            <Button type="submit">Créer</Button>
+            <Button variant="contained" type="submit" sx={{ mt: 2 }}>
+              Créer
+            </Button>
           </form>
         </DialogContent>
       </Dialog>

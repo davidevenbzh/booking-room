@@ -1,4 +1,6 @@
 import { Container, CssBaseline } from "@mui/material";
+import { setDefaultOptions } from "date-fns";
+import { fr } from "date-fns/locale";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
@@ -10,6 +12,9 @@ import { store } from "./store";
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
+
+setDefaultOptions({ locale: fr });
+
 root.render(
   <React.StrictMode>
     <CssBaseline />

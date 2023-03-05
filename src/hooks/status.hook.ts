@@ -1,3 +1,4 @@
+import { compareAsc, compareDesc, differenceInMinutes } from "date-fns";
 import React from "react";
 import {
   useGetUserByIdQuery,
@@ -29,8 +30,8 @@ export const useStatus = () => {
     if (bookingsResponse?.success) {
       return bookingsResponse?.data?.find(
         (booking) =>
-          new Date(booking.start).getTime() < currentDate.getTime() &&
-          new Date(booking.end).getTime() > currentDate.getTime()
+          compareAsc(currentDate, new Date(booking.start)) === 1 &&
+          compareDesc(currentDate, new Date(booking.end)) === 1
       );
     }
   }, [bookingsResponse?.data, bookingsResponse?.success]);
@@ -49,17 +50,18 @@ export const useStatus = () => {
         maximumBookingDuration,
         bookingDurationStep,
       } = resourceResponse.data;
-      const currentTime = new Date().getTime();
-      const bookingStartTimes = bookingsResponse.data
-        ?.map((booking) => new Date(booking.start).getTime())
+      const currentDate = new Date();
+      const bookingStartDates = bookingsResponse.data
+        ?.map((booking) => new Date(booking.start))
         .sort();
-      console.log(bookingStartTimes);
-      const nextBookingTime = bookingStartTimes?.find(
-        (bookingTime) => currentTime < bookingTime
+      const nextBookingDate = bookingStartDates?.find(
+        (bookingDate) => compareAsc(bookingDate, currentDate) === 1
       );
-      console.log(nextBookingTime);
-      if (nextBookingTime) {
-        const timeBeforeNextMeeting = (nextBookingTime - currentTime) / 60000;
+      if (nextBookingDate) {
+        const timeBeforeNextMeeting = differenceInMinutes(
+          nextBookingDate,
+          currentDate
+        );
         for (
           let i = minimumBookingDuration;
           i <= timeBeforeNextMeeting && i <= maximumBookingDuration;
