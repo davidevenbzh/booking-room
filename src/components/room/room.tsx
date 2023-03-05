@@ -12,15 +12,17 @@ const Room = () => {
     <CircularProgress />
   ) : (
     <>
-      <Box sx={{ display: "flex", justifyContent: "center" }}>
+      <Box role="header" sx={{ display: "flex", justifyContent: "center" }}>
         <Typography variant="h1" sx={{ mr: 2 }}>
           {data?.data?.name}
         </Typography>
         <Status />
       </Box>
-      <CreateBooking />
-      <Infos />
-      <Timeline />
+      <Box role="main">
+        <CreateBooking />
+        <Infos />
+        <Timeline />
+      </Box>
     </>
   );
 };
