@@ -41,14 +41,13 @@ const CreateBooking = () => {
     },
     [duration, name, postBooking]
   );
-
   return (
     <>
       <IconButton
         onClick={() => {
           setOpen(true);
         }}
-        disabled={!isAvailable}
+        disabled={!isAvailable || currentAvailableDurations.length === 0}
       >
         <AddIcon fontSize="large" />
       </IconButton>

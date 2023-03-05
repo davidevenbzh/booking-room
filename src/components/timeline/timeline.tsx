@@ -10,6 +10,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import React from "react";
 import { useDeleteBookingMutation, useGetBookingsQuery } from "../../store";
 import { useGetMeQuery } from "../../store/api/me.request";
+import { format } from "date-fns";
 
 const Timeline = () => {
   const { data: meResponse } = useGetMeQuery();
@@ -23,9 +24,9 @@ const Timeline = () => {
         const end = new Date(booking.end);
         return (
           <TimelineItem key={booking.id}>
-            <TimelineOppositeContent>{`${begin.getDate()}/${
-              begin.getMonth() + 1
-            }/${begin.getFullYear()} ${begin.getHours()}H${begin.getMinutes()} - ${end.getHours()}H${end.getMinutes()}`}</TimelineOppositeContent>
+            <TimelineOppositeContent>
+              {`${format(begin, "dd/MM/yyyy HH:mm")} - ${format(end, "HH:mm")}`}
+            </TimelineOppositeContent>
             <TimelineSeparator>
               <TimelineDot />
               {bookingsResponse?.data?.length !== index + 1 && (
