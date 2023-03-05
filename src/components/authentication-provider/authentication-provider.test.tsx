@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen, waitFor } from "../../test-utils";
 import { addSeconds } from "date-fns";
 import AuthenticationProvider from "./authentication-provider";
 import { useAuthentication } from "../../hooks";
