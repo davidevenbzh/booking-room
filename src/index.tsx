@@ -5,6 +5,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import AuthenticationProvider from "./components/authentication-provider";
+import ErrorNotifier from "./components/error-notifier";
 import Room from "./components/room";
 import reportWebVitals from "./reportWebVitals";
 import { store } from "./store";
@@ -19,6 +20,7 @@ root.render(
   <React.StrictMode>
     <CssBaseline />
     <Provider store={store}>
+      <ErrorNotifier />
       <AuthenticationProvider>
         <Container>
           <Room />
