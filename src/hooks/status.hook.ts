@@ -6,6 +6,14 @@ import {
   useGetResourceQuery,
 } from "../store";
 
+/**
+ * A hook to get user info with user id
+ * @param {string} userId
+ * @returns
+ * ```ts
+ * occupiedBy?: string
+ * ```
+ */
 const useOccupiedBy = (userId: string) => {
   const { data } = useGetUserByIdQuery(userId, { skip: userId.length === 0 });
 
@@ -18,6 +26,19 @@ const useOccupiedBy = (userId: string) => {
   return occupiedBy;
 };
 
+/**
+ * A hook to get infos about current room status
+ * @returns
+ * ```ts
+ * {
+ *  isLoading: boolean;
+    occupiedBy?: string;
+    currentMeetName?: string;
+    isAvailable: boolean;
+    currentAvailableDurations: number[];
+ * }
+ * ```
+ */
 export const useStatus = () => {
   const { data: resourceResponse } = useGetResourceQuery();
   const { data: bookingsResponse, isLoading } = useGetBookingsQuery(undefined, {

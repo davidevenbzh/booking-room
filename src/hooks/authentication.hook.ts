@@ -2,6 +2,17 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { type RootState, setToken, useLoginQuery } from "../store";
 
+/**
+ * A hook to use for trigger an authentication to api
+ * @returns
+ * ```ts
+ * {
+ *  isLoading: boolean;
+ *  expirationDate?: Date;
+ *  error?: FetchBaseQueryError | SerializedError
+ * }
+ * ```
+ */
 export const useAuthentication = () => {
   const dispatch = useDispatch();
   const token = useSelector((state: RootState) => state.token.token);
