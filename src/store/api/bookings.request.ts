@@ -7,6 +7,10 @@ interface PostBookingApiArgs {
   duration: number;
 }
 
+interface DeleteBookingApiArgs {
+  id: string;
+}
+
 const request = api.injectEndpoints({
   endpoints: (builder) => ({
     getBookings: builder.query<ApiResponse<Booking[]>, void>({
@@ -30,7 +34,18 @@ const request = api.injectEndpoints({
         },
       }),
     }),
+    deleteBooking: builder.mutation<ApiResponse<null>, DeleteBookingApiArgs>({
+      query: (args) => ({
+        url: `bookings/${args.id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: [tags.BOOKING],
+    }),
   }),
 });
 
-export const { useGetBookingsQuery, usePostBookingMutation } = request;
+export const {
+  useGetBookingsQuery,
+  usePostBookingMutation,
+  useDeleteBookingMutation,
+} = request;
