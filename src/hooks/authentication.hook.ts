@@ -5,7 +5,7 @@ import { type RootState, setToken, useLoginQuery } from "../store";
 export const useAuthentication = () => {
   const dispatch = useDispatch();
   const token = useSelector((state: RootState) => state.token.token);
-  const { data, isLoading } = useLoginQuery();
+  const { data, isLoading, error } = useLoginQuery();
 
   React.useEffect(() => {
     if (data?.success && data?.data) {
@@ -15,5 +15,6 @@ export const useAuthentication = () => {
 
   return {
     isLoading: isLoading || !token,
+    error,
   };
 };

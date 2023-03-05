@@ -1,4 +1,4 @@
-import { CircularProgress } from "@mui/material";
+import { CircularProgress, Typography } from "@mui/material";
 import React from "react";
 import { useAuthentication } from "../../hooks";
 
@@ -7,8 +7,14 @@ interface AuthenticationProviderProps {
 }
 
 const AuthenticationProvider = ({ children }: AuthenticationProviderProps) => {
-  const { isLoading } = useAuthentication();
-  return isLoading ? <CircularProgress /> : children;
+  const { isLoading, error } = useAuthentication();
+  return isLoading && !error ? (
+    <CircularProgress />
+  ) : error ? (
+    <Typography>Non connecté</Typography>
+  ) : (
+    children
+  );
 };
 
 export default AuthenticationProvider;
