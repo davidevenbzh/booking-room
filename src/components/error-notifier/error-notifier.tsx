@@ -2,6 +2,9 @@ import { Snackbar } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { clearError, type RootState } from "../../store";
 
+/**
+ * A component for display error in application
+ */
 const ErrorNotifier = () => {
   const notification = useSelector(
     (state: RootState) => state.errorNotification

@@ -5,6 +5,9 @@ import Infos from "../infos";
 import Status from "../status";
 import Timeline from "../timeline";
 
+/**
+ * A component who will all infos and component related to room
+ */
 const Room = () => {
   const { data, isLoading } = useGetResourceQuery();
 

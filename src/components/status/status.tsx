@@ -4,6 +4,9 @@ import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import { useStatus } from "../../hooks";
 import React from "react";
 
+/**
+ * A component who will display icon of the current status of room
+ */
 const Status = () => {
   const { isLoading, isAvailable } = useStatus();
 

@@ -12,9 +12,16 @@ import { differenceInMilliseconds } from "date-fns";
 import { useAuthentication } from "../../hooks";
 
 interface AuthenticationProviderProps {
+  /**
+   * children element
+   */
   children: JSX.Element;
 }
 
+/**
+ * A component who will handle authentication logic, all children are display if authentication succeed
+ * @param {JSX.element} children child HTML node
+ */
 const AuthenticationProvider = ({ children }: AuthenticationProviderProps) => {
   const { isLoading, error, expirationDate } = useAuthentication();
   const [open, setOpen] = React.useState<boolean>(false);
