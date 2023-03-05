@@ -8,8 +8,12 @@ import TimelineDot from "@mui/lab/TimelineDot";
 import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
 import DeleteIcon from "@mui/icons-material/Delete";
 import React from "react";
-import { useDeleteBookingMutation, useGetBookingsQuery } from "../../store";
-import { useGetMeQuery } from "../../store/api/me.request";
+import {
+  useDeleteBookingMutation,
+  useGetBookingsQuery,
+  useGetMeQuery,
+} from "../../store";
+
 import { format } from "date-fns";
 
 const Timeline = () => {

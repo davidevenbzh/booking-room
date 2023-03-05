@@ -4,3 +4,4 @@ export * from "./resource.request";
 export * from "./bookings.request";
 export * from "./user-by-id.request";
 export * from "./error.middleware";
+export * from "./me.request";
