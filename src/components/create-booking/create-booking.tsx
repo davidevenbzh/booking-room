@@ -8,7 +8,6 @@ import {
   FormControl,
   IconButton,
   MenuItem,
-  Select,
   TextField,
 } from "@mui/material";
 import { usePostBookingMutation } from "../../store";
@@ -41,9 +40,11 @@ const CreateBooking = () => {
     },
     [duration, name, postBooking]
   );
+
   return (
     <>
       <IconButton
+        aria-label="Créer une réunion"
         onClick={() => {
           setOpen(true);
         }}
@@ -56,8 +57,9 @@ const CreateBooking = () => {
         onClose={() => {
           setOpen(false);
         }}
+        aria-labelledby="dialog-title"
       >
-        <DialogTitle>Créer une réunion</DialogTitle>
+        <DialogTitle id="dialog-title">Créer une réunion</DialogTitle>
         <DialogContent>
           <form onSubmit={onSubmit}>
             <FormControl fullWidth sx={{ gap: 2, mt: 2 }}>
@@ -71,17 +73,19 @@ const CreateBooking = () => {
                   setName(event.target.value);
                 }}
               />
-              <Select
+              <TextField
                 id="duration"
-                label="Durée"
+                label="Durée de la réunion"
                 required
+                placeholder="10 minutes"
                 value={duration}
+                select
                 onChange={(event) => {
-                  setDuration(event.target.value as number);
+                  setDuration(parseInt(event.target.value));
                 }}
               >
                 {options}
-              </Select>
+              </TextField>
             </FormControl>
             <Button variant="contained" type="submit" sx={{ mt: 2 }}>
               Créer

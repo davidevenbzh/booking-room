@@ -12,7 +12,7 @@ const Infos = () => {
         variant="body1"
         sx={{ textOverflow: "ellipsis", overflow: "hidden" }}
       >{`Nom de la réunion en cours: ${currentMeetName}`}</Typography>
-      <Typography variant="subtitle1">{`Organisateur: ${occupiedBy}`}</Typography>
+      <Typography variant="body2">{`Organisateur: ${occupiedBy}`}</Typography>
     </Paper>
   ) : null;
 };

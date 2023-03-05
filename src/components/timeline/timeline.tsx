@@ -38,8 +38,11 @@ const Timeline = () => {
             >
               {booking.name}
               {meResponse?.data?.id === booking.userId && (
-                <IconButton onClick={() => deleteBooking({ id: booking.id })}>
-                  <DeleteIcon />
+                <IconButton
+                  aria-label={`Supprimer la réunion ${booking.name}`}
+                  onClick={() => deleteBooking({ id: booking.id })}
+                >
+                  <DeleteIcon aria-hidden />
                 </IconButton>
               )}
             </TimelineContent>

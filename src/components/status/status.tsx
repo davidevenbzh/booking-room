@@ -10,9 +10,19 @@ const Status = () => {
   const availabilityIcon = React.useMemo(
     () =>
       isAvailable ? (
-        <CheckCircleIcon color="success" fontSize="large" />
+        <CheckCircleIcon
+          color="success"
+          fontSize="large"
+          aria-hidden={false}
+          aria-label="La salle est disponible"
+        />
       ) : (
-        <RemoveCircleIcon color="error" fontSize="large" />
+        <RemoveCircleIcon
+          color="error"
+          fontSize="large"
+          aria-hidden={false}
+          aria-label="La salle est occupé"
+        />
       ),
     [isAvailable]
   );
