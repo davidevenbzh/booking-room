@@ -53,11 +53,9 @@ export const useStatus = () => {
       const bookingStartTimes = bookingsResponse.data
         ?.map((booking) => new Date(booking.start).getTime())
         .sort();
-      console.log(bookingStartTimes);
       const nextBookingTime = bookingStartTimes?.find(
         (bookingTime) => currentTime < bookingTime
       );
-      console.log(nextBookingTime);
       if (nextBookingTime) {
         const timeBeforeNextMeeting = (nextBookingTime - currentTime) / 60000;
         for (

@@ -32,7 +32,9 @@ const Timeline = () => {
                 <TimelineConnector />
               )}
             </TimelineSeparator>
-            <TimelineContent>
+            <TimelineContent
+              sx={{ overflow: "hidden", textOverflow: "ellipsis" }}
+            >
               {booking.name}
               {meResponse?.data?.id === booking.userId && (
                 <IconButton onClick={() => deleteBooking({ id: booking.id })}>
