@@ -5,6 +5,9 @@ import {
 } from "@reduxjs/toolkit";
 import { displayError } from "../error-notification.slice";
 
+/**
+ * Initialisation of a middleware to handle potential error of the api
+ */
 export const errorMiddleware: Middleware =
   (api: MiddlewareAPI) => (next) => (action) => {
     if (isRejectedWithValue(action)) {

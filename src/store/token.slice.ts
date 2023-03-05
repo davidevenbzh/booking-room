@@ -3,6 +3,10 @@ import { type Token } from "../types";
 
 const initialState: Partial<Token> = {};
 
+/**
+ * Initilisation of slice with redux-toolkit
+ * @description This slice will be used to store identification token and expiration date
+ */
 export const tokenSlice = createSlice({
   name: "token",
   initialState,

@@ -3,6 +3,9 @@ import { api, errorMiddleware } from "./api";
 import errorNotificationReducer from "./error-notification.slice";
 import tokenReducer from "./token.slice";
 
+/**
+ * Initialisation of redux store
+ */
 export const store = configureStore({
   reducer: {
     [api.reducerPath]: api.reducer,
