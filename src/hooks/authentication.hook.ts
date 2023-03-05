@@ -15,6 +15,7 @@ export const useAuthentication = () => {
 
   return {
     isLoading: isLoading || !token,
+    expirationDate: data?.data?.expirationDate,
     error,
   };
 };
