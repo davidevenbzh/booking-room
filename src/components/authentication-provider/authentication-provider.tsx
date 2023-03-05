@@ -18,7 +18,6 @@ interface AuthenticationProviderProps {
 const AuthenticationProvider = ({ children }: AuthenticationProviderProps) => {
   const { isLoading, error, expirationDate } = useAuthentication();
   const [open, setOpen] = React.useState<boolean>(false);
-
   React.useEffect(() => {
     if (expirationDate) {
       const currentDate = new Date();
