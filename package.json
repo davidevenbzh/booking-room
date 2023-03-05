@@ -27,7 +27,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --coveragePathIgnorePatterns=test-utils",
     "eject": "react-scripts eject",
     "lint": "eslint --fix --ext .ts,.tsx ./src",
     "prepare": "husky install"
